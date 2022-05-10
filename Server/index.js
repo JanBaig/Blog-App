@@ -1,31 +1,38 @@
 
 // Node Server
-
 const express = require('express')
 const app = express()
 const port = 3001
-// Parses incoming JSON requests and puts the parsed data in req
 app.use(express.json());
-// Allows for Cross Origin Resource Sharing
 const cors = require('cors');
-// Allows requests from all origins (Which is why the  bracket for cors() is empty)
 app.use(cors())
-
+const blogData = require('./Database/blog.js')
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/api', (req, res) => {
+app.get('/api', (req, res, next) => {
     res.send('Here is some API information!')
 })
 
 app.post('/api', (req, res) => {
     // Data is going to come from request body
     const data = req.body
-    console.log(data)
-    // Display this to the user
-    res.send('Blog successfully saved!')
+
+    const newBlog = new blogData({
+        "title": data.title,
+        "author": data.author,
+        "blog_content": data.blog_content
+    })
+
+    newBlog.save()
+    .then(() => {
+        // Display this to the user
+        res.send('Blog successfully saved to the DB!')
+    })
+    .catch((error) => next(error))
+
 })
 
 app.listen(port, () => {

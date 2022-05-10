@@ -13,7 +13,6 @@ function App() {
     const formData = new FormData(event.target);
     const value = Object.fromEntries(formData.entries());
     console.log({ value });
-    console.log(typeof(value))
 
     axios.post(baseURL, value)
       .then(res => {
