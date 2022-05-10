@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import './styles.css'
 
 function App() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
+  const [blogArray, setBlogArray] = useState([]);
   const baseURL = 'http://localhost:3001/api'
 
   function handleSubmit(event){
@@ -12,20 +14,44 @@ function App() {
     // e.target is the <form></form> content
     const formData = new FormData(event.target);
     const value = Object.fromEntries(formData.entries());
-    console.log({ value });
 
     axios.post(baseURL, value)
-      .then(res => {
-        console.log(res.data) // 'Blog successfully saved!'
-      })
+    .then(res => {
+      console.log('Successfully saved to the DB') // 'Blog successfully saved!'
+      console.log(res.data)
+      setBlogArray((blogArray) => (blogArray.concat(res.data)))
+      console.log(blogArray)
+
+      setTitle("")
+      setAuthor("")
+      setContent("")
+    })
     
   }
 
+  function displayBlogs(){
+
+    let displayInfo = blogArray.map((blogItem, count) => {
+      
+      return (
+        <div key={count}>
+          <p>{blogItem.title}</p>
+        </div>
+      )
+          
+    })
+
+    return (
+      <div>
+        {displayInfo}
+      </div>
+    )
+  }
 
   return (
-    <div>
+    <div className="mainBody">
 
-      <h2>Blog App</h2>  
+      <h2 className="mainTitle">Blog App</h2>  
       
       <form onSubmit={handleSubmit}>
 
@@ -38,6 +64,8 @@ function App() {
         <input type="submit" value="Submit" />
 
       </form>
+
+      {displayBlogs()}
     
     </div>
   );

@@ -27,9 +27,9 @@ app.post('/api', (req, res) => {
     })
 
     newBlog.save()
-    .then(() => {
+    .then((savedBlog) => {
         // Display this to the user
-        res.send('Blog successfully saved to the DB!')
+        res.json(savedBlog)
     })
     .catch((error) => next(error))
 
