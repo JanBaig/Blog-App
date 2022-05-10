@@ -73,7 +73,8 @@ function App() {
 
 export default App;
 
-// Tasks
-// 1. Test sending data to backend (Role of axios/form handling...?)
-// 2. Save the request data to the DB
-// 3. Eror handling and showing input
+// Goals
+// Seperate 'Create Blog' with Blog Display Lists
+// Display each blog in a div (With borders) and line them up on top of each other to the right
+// Load initial data from the DB into the blogsArary to render at first
+// Add options to edit and remove existing blogs (All re-rendered correctly)
