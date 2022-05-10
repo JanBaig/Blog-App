@@ -1,15 +1,24 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 
 function App() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
+  const baseURL = 'http://localhost:3001/api'
 
   function handleSubmit(event){
     event.preventDefault()
     // e.target is the <form></form> content
     const formData = new FormData(event.target);
+    const value = Object.fromEntries(formData.entries());
+    console.log({ value });
+    console.log(typeof(value))
+
+    axios.post(baseURL, value)
+      .then(res => {
+        console.log(res.data) // 'Blog successfully saved!'
+      })
     
   }
 
@@ -21,11 +30,11 @@ function App() {
       
       <form onSubmit={handleSubmit}>
 
-        <input type='text' placeholder="Title" onChange={(e) => setTitle(e.target.value)} value={title}/>
+        <input name="title" type='text' placeholder="Title" onChange={(e) => setTitle(e.target.value)} value={title}/>
         <br/>
-        <input type='text' placeholder="Author Name" onChange={(e) => setAuthor(e.target.value)} value={author}/>
+        <input name="author" type='text' placeholder="Author Name" onChange={(e) => setAuthor(e.target.value)} value={author}/>
         <br/>
-        <textarea type='text' placeholder="Blog Content" onChange={(e) => setContent(e.target.value)} value={content}/>
+        <textarea name="blog_content" type='text' placeholder="Blog Content" onChange={(e) => setContent(e.target.value)} value={content}/>
         <br/>
         <input type="submit" value="Submit" />
 
@@ -39,5 +48,5 @@ export default App;
 
 // Tasks
 // 1. Test sending data to backend (Role of axios/form handling...?)
-// 2. Practice getting response from DB
+// 2. Save the request data to the DB
 // 3. Eror handling and showing input
