@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, {useState} from "react";
 import '../Styles/styles.css'
+import BlogForm from "./BlogForm";
 
 
 function BlogItem({ blogData }){
@@ -21,15 +22,6 @@ function BlogItem({ blogData }){
         
     }
 
-    function blogEditMode(){
-
-    }
-
-    function displayMode(){
-        
-    }
-
-
     return (
 
         <div className="blogItem">
@@ -39,8 +31,8 @@ function BlogItem({ blogData }){
             <p>{'Content: ' + blogData.blog_content}</p>
             <button onClick={deleteBlog}>Delete</button>
             <button onClick={() => setBtnVisable(true)}>Edit</button>
-            {btnVisable ? <button onClick={editBlog}>Submit</button> : <p>Not visable</p> }
-
+            {btnVisable ? <button onClick={editBlog}>Submit</button>: <p>Not visable</p> }
+            
         </div>
     )
 }

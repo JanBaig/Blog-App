@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './Styles/styles.css'
-import BlogItem from './Components/blogItem'
+import BlogItem from './Components/BlogItem'
+import BlogForm from './Components/BlogForm'
 
 function App() {
   const [title, setTitle] = useState("");
@@ -22,6 +23,27 @@ function App() {
 
   useEffect(loadDefault, [])
 
+  function displayBlogs(){
+
+    let displayInfo = blogArray.map((blogItem, count) => {
+      
+      return (
+        <div key={count}>
+          <BlogItem blogData={blogItem}/>
+          
+        </div>
+      )
+          
+    })
+
+    return(
+      <div>
+        {displayInfo}
+      </div>
+    )
+      
+  }
+
   function handleSubmit(event){
     event.preventDefault()
     // e.target is the <form></form> content
@@ -40,26 +62,6 @@ function App() {
       setContent("")
     })
     
-  }
-
-  function displayBlogs(){
-
-    let displayInfo = blogArray.map((blogItem, count) => {
-      
-      return (
-        <div key={count}>
-          <BlogItem blogData={blogItem}/>
-        </div>
-      )
-          
-    })
-
-    return(
-      <div>
-        {displayInfo}
-      </div>
-    )
-      
   }
 
   return (
@@ -85,6 +87,8 @@ function App() {
         </form>
 
       </div>
+
+      
 
       <div className="displayBlog">
         <h3>Your Blogs</h3>
