@@ -1,0 +1,33 @@
+
+.editBlog {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    text-align: center;
+   
+    
+}
+
+.mainTitle {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.displayBlog {
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    left: 60%;
+
+}
+
+.blogItem {
+    text-align: left;
+    position: relative;
+    border-style: outset;
+    padding: 20px;
+    width: 350px;
+}

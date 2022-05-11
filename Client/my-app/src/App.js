@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import './styles.css'
+import './Styles/styles.css'
+import BlogItem from './Components/blogItem'
 
 function App() {
   const [title, setTitle] = useState("");
@@ -8,6 +9,18 @@ function App() {
   const [content, setContent] = useState("");
   const [blogArray, setBlogArray] = useState([]);
   const baseURL = 'http://localhost:3001/api'
+
+  function loadDefault(){
+    axios.get(baseURL)
+    .then(res => {
+      // Returns all blogs stored in the database
+      res.data.map(blogItem => {
+        setBlogArray(blogArray => blogArray.concat(blogItem))
+      })
+    })
+  }
+
+  useEffect(loadDefault, [])
 
   function handleSubmit(event){
     event.preventDefault()
@@ -35,38 +48,50 @@ function App() {
       
       return (
         <div key={count}>
-          <p>{blogItem.title}</p>
+          <BlogItem blogData={blogItem}/>
         </div>
       )
           
     })
 
-    return (
+    return(
       <div>
         {displayInfo}
       </div>
     )
+      
   }
 
   return (
-    <div className="mainBody">
+    <div>
 
-      <h2 className="mainTitle">Blog App</h2>  
+      <h1 className="mainTitle" >Blog App</h1>  
       
-      <form onSubmit={handleSubmit}>
+      <div className="editBlog">
 
-        <input name="title" type='text' placeholder="Title" onChange={(e) => setTitle(e.target.value)} value={title}/>
-        <br/>
-        <input name="author" type='text' placeholder="Author Name" onChange={(e) => setAuthor(e.target.value)} value={author}/>
-        <br/>
-        <textarea name="blog_content" type='text' placeholder="Blog Content" onChange={(e) => setContent(e.target.value)} value={content}/>
-        <br/>
-        <input type="submit" value="Submit" />
+        <form onSubmit={handleSubmit}>
+          
+          <h3>Create New Blog</h3>
 
-      </form>
+          <input name="title" type='text' placeholder="Title" onChange={(e) => setTitle(e.target.value)} value={title}/>
+          <br/>
+          <input name="author" type='text' placeholder="Author Name" onChange={(e) => setAuthor(e.target.value)} value={author}/>
+          <br/>
+          <textarea name="blog_content" type='text' placeholder="Blog Content" onChange={(e) => setContent(e.target.value)} value={content}/>
+          <br/>
+          <br />
+          <input type="submit" value="Submit" />
 
-      {displayBlogs()}
-    
+        </form>
+
+      </div>
+
+      <div className="displayBlog">
+        <h3>Your Blogs</h3>
+        {displayBlogs()}
+
+      </div>
+      
     </div>
   );
 }
