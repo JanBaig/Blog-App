@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './Styles/styles.css'
 import BlogItem from './Components/BlogItem'
-import BlogForm from './Components/BlogForm'
 
 function App() {
   const [title, setTitle] = useState("");

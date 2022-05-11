@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, {useState} from "react";
 import '../Styles/styles.css'
-import BlogForm from "./BlogForm";
 
 
 function BlogItem({ blogData }){
