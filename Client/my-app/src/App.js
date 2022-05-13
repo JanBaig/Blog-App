@@ -87,8 +87,6 @@ function App() {
 
       </div>
 
-      
-
       <div className="displayBlog">
         <h3>Your Blogs</h3>
         {displayBlogs()}
