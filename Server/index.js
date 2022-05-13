@@ -7,11 +7,11 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors())
 const blogData = require('./Database/blog.js');
-const { json } = require('express');
+app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
 
-  res.send('Hello World!')
+  res.render('index')
 
 })
 
