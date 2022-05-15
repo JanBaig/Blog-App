@@ -1,24 +1,26 @@
 import axios from "axios";
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import '../Styles/styles.css'
 
 
-function BlogItem({ blogData }){
+function BlogItem({ blogData, blogArray, setBlogArray }){
     const baseURL = 'http://localhost:3001/api'
     const [btnVisable, setBtnVisable] = useState(false);
+    let navigate = useNavigate();
     
     function deleteBlog(){
-        axios.delete(`${baseURL}/${blogData._id}`).then((res) => {
-            console.log(res.data)
+        axios.delete(`${baseURL}/${blogData._id}`)
+        .then((res) => {
+            const filteredBlogs = blogArray.filter((blog) => blog.title !== blogData.title)
+            setBlogArray(filteredBlogs)
         })
-
     }
 
     function editBlog(){
-        
-        alert('Updated')
-        setBtnVisable(false)
-        
+
+        navigate("/createNew")
+
     }
 
     return (
@@ -28,9 +30,9 @@ function BlogItem({ blogData }){
             <p>{'Title: ' + blogData.title}</p>
             <p>{'Author: ' + blogData.author}</p>
             <p>{'Content: ' + blogData.blog_content}</p>
+
             <button onClick={deleteBlog}>Delete</button>
-            <button onClick={() => setBtnVisable(true)}>Edit</button>
-            {btnVisable ? <button onClick={editBlog}>Submit</button>: <p>Not visable</p> }
+            <button onClick={editBlog}>Edit</button>
             
         </div>
     )

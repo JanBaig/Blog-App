@@ -22,7 +22,7 @@ export default function DisplayAll(){
     let displayInfo = blogArray.map((blogItem, count) => {
         return (
             <div key={count}>
-                <BlogItem blogData={blogItem}/>
+                <BlogItem blogData={blogItem} blogArray={blogArray} setBlogArray={setBlogArray}/>
             </div>
         )}
     )
@@ -35,6 +35,7 @@ export default function DisplayAll(){
 
     return (
         <div className="displayBlog">
+          <h1>All Blogs</h1>
             {displayBlogs()}
         </div>
     )
