@@ -31,6 +31,7 @@ export default function CreateNew(){
 
     return (
         <main>
+            <button onClick={() => navigate("/")}>Home</button>
             <div className="editBlog">
                 <form onSubmit={handleSubmit}>
                     <h3>Create New Blog</h3>

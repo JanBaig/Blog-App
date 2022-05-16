@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function DisplayAll(){
   const [blogArray, setBlogArray] = useState([]);
   const baseURL = 'http://localhost:3001/api'
+  const [filter, setFilter] = useState("")
   let navigate = useNavigate();
 
   function loadDefault(){
@@ -20,8 +21,16 @@ export default function DisplayAll(){
   
   useEffect(loadDefault, [])
 
+  function filterData(event){
+    setFilter(event.target.value)
+    //alert(`Has been filtered.`)
+  }
+
   function displayBlogs(){
-    let displayInfo = blogArray.map((blogItem, count) => {
+    // Only the blogs that match the filter should be rendered
+    const filteredBlogs = blogArray.filter(blog => blog.title.includes(filter))
+
+    let displayInfo = filteredBlogs.map((blogItem, count) => {
       return (
         <div key={count}>
           <BlogItem blogData={blogItem} blogArray={blogArray} setBlogArray={setBlogArray}/>
@@ -37,8 +46,10 @@ export default function DisplayAll(){
 
     return (
       <div className="displayBlog">
-        <h1>All Blogs</h1>
+        <h1>UserName's Blogs</h1>
         <button onClick={() => navigate("/createNew")}>Create New</button>
+        <label htmlFor="filter">Filter: </label>
+        <input type="text" name="filter" onChange={filterData} value={filter} placeholder="Filter here"/>
         {displayBlogs()}
       </div>
   )
