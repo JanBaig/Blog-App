@@ -20,24 +20,24 @@ export default function DisplayAll(){
 
   function displayBlogs(){
     let displayInfo = blogArray.map((blogItem, count) => {
-        return (
-            <div key={count}>
-                <BlogItem blogData={blogItem} blogArray={blogArray} setBlogArray={setBlogArray}/>
-            </div>
-        )}
+      return (
+        <div key={count}>
+          <BlogItem blogData={blogItem} blogArray={blogArray} setBlogArray={setBlogArray}/>
+        </div>
+      )}
     )
 
     return(
-        <div>
-            {displayInfo}
-        </div>)
+      <div>
+        {displayInfo}
+      </div>)
     }
 
     return (
-        <div className="displayBlog">
-          <h1>All Blogs</h1>
-            {displayBlogs()}
-        </div>
-    )
+      <div className="displayBlog">
+        <h1>All Blogs</h1>
+        {displayBlogs()}
+      </div>
+  )
 
 }

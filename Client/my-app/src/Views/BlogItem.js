@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import '../Styles/styles.css'
 
 
 function BlogItem({ blogData, blogArray, setBlogArray }){
     const baseURL = 'http://localhost:3001/api'
-    const [btnVisable, setBtnVisable] = useState(false);
     let navigate = useNavigate();
     
     function deleteBlog(){
@@ -19,7 +18,7 @@ function BlogItem({ blogData, blogArray, setBlogArray }){
 
     function editBlog(){
 
-        navigate("/createNew")
+        navigate(`/editBlog/${blogData._id}`)
 
     }
 

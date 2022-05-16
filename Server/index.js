@@ -24,6 +24,15 @@ app.get('/api', (req, res, next) => {
 
 })
 
+app.get('/api/:id', (req, res) => {
+  // the id is the _id
+  const ID = req.params.id;
+  blogData.findById(ID).then((foundBlog) => {
+    res.json(foundBlog)
+  })
+
+})
+
 // Add/Return a single new blog
 app.post('/api', (req, res) => {
 
@@ -55,10 +64,23 @@ app.delete('/api/:id', (req, res) => {
 
 })
 
+//replaces the entire identified resource with the request data
 app.put('/api/:id', (req, res) => {
 
+  const body = req.body
   const ID = req.params.id
-  //Something here 
+  
+  // Finding based on the Title (Blog posts CANNOT have the SAME title)
+  blogData.findOneAndUpdate(
+    {"_id": ID}, 
+    {
+      "title": body.title,
+      "author": body.author,
+      "blog_content": body.blog_content}
+  )
+  .then(replaced => {
+    res.json(replaced)
+  })
   
 
 })

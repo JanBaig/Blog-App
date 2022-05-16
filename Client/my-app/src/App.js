@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import CreateNew from "./Views/CreateNew"
 import DisplayAll from './Views/displayAll';
+import EditBlog from "./Views/EditBlog";
 import Home from "./Views/Home"
 
 export default function App() {
@@ -16,7 +17,9 @@ export default function App() {
         <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/displayAll" element={<DisplayAll />}/>
-            <Route path="/createNew" element={<CreateNew />}/>
+            <Route path="/createNew" element={<CreateNew />} />
+            <Route path="/editBlog/:id" element={<EditBlog />}/> 
+            
         </Routes>
     </Router>
     
