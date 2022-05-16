@@ -1,10 +1,12 @@
 import { React, useState, useEffect } from "react"
 import BlogItem from "./BlogItem"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function DisplayAll(){
   const [blogArray, setBlogArray] = useState([]);
   const baseURL = 'http://localhost:3001/api'
+  let navigate = useNavigate();
 
   function loadDefault(){
     axios.get(baseURL)
@@ -36,6 +38,7 @@ export default function DisplayAll(){
     return (
       <div className="displayBlog">
         <h1>All Blogs</h1>
+        <button onClick={() => navigate("/createNew")}>Create New</button>
         {displayBlogs()}
       </div>
   )

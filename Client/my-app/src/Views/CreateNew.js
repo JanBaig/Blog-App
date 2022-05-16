@@ -1,4 +1,5 @@
 import {React, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 const baseURL = 'http://localhost:3001/api'
 
@@ -7,6 +8,7 @@ export default function CreateNew(){
     const [title, setTitle] = useState("");
     const [author, setAuthor] = useState("");
     const [content, setContent] = useState("");
+    let navigate = useNavigate();
 
     function handleSubmit(event){
         event.preventDefault()
@@ -22,6 +24,7 @@ export default function CreateNew(){
           setTitle("")
           setAuthor("")
           setContent("")
+          navigate("/")
         })
         
       }
