@@ -1,0 +1,7 @@
+Goals:
+
+1. Plan pages
+2. Use react router to get the basic layout (login, Signup, blogPage, MainDisplayPage)
+3. Create the user and blog schema
+4. Create the basic controllers
+5. Testing with JEST (in test mode not development)
