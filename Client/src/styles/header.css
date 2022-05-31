@@ -1,0 +1,15 @@
+
+.home-header {
+    text-align: center;
+}
+
+.home-header h1 {
+    font-size: 3rem;
+    color: #0f52ba;
+    margin-bottom: 1rem;
+}
+
+.home-header p {
+    color: #a9a9a9;
+    font-weight: 500;
+}

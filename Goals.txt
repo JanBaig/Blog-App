@@ -1,7 +1,22 @@
 Goals:
 
-1. Plan pages
-2. Use react router to get the basic layout (login, Signup, blogPage, MainDisplayPage)
-3. Create the user and blog schema
-4. Create the basic controllers
-5. Testing with JEST (in test mode not development)
+1. (DONE) Plan pages
+2. (DONE) Use react router to get the basic layout (login, Signup, blogPage, MainDisplayPage)
+3. (DONE) Create the user and blog schema
+4. (DONE) Create the basic controllers (User, Login, Blog)
+    - Login (Token, bcrypt)
+    - User (POST, GET)
+    - Blog (POST (Update user's 'blogs' array)), GET)
+5. (DONE) Testing (in test mode not development/JEST?) 
+    - Unique username
+    - Username cannot include a space
+6. Rough layout of each router page 
+7. New route allowing users to create a new blog 
+    - Set background image
+8. Updata blog scehma to include:
+    - Background image link
+    - Date created
+    - Category (Sub-categories?)
+9. Update user schema to include:
+    - user avatar (Get google account image?)
+        - Let user update that via a PUT request

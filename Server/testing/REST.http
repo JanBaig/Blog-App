@@ -1,0 +1,49 @@
+@port = 3001
+@default = http://localhost:{{port}}
+
+#### Get Single Blog
+GET {{default}}/api/blog/629528fafa16a636e7d2d262
+
+#### Get All Blogs
+GET {{default}}/api/blog
+
+#### Create New Blog
+POST {{default}}/api/blog
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIjMSIsImlkIjoiNjI5NGUyZjA4ZjFkNTc2ZTU2NDZlNTU0IiwiaWF0IjoxNjUzOTMwMzAxfQ.kz6_kw4bx5E-8vqiX02tqgNqMNaY9zOtNORIThR9BsU
+
+{
+  "title": "SixthBlog",
+  "description": "nothing much",
+  "author": "Jan",
+  "content": "some content",
+  "description": "Just my sixth blog.",
+  "likes": 0
+
+}
+
+
+#### Getting Single User
+GET {{default}}/api/user/6294e6aea5079e4135785998
+
+#### Get All Users
+GET {{default}}/api/user
+
+#### Creating New User
+POST {{default}}/api/user 
+Content-Type: application/json
+
+{
+  "username": "user#3",
+  "name": "Jan",
+  "password": "user#3"
+}
+
+#### User Log In
+POST {{default}}/api/login
+Content-Type: application/json 
+
+{
+  "username": "user#1",
+  "password": "user#1"
+}
