@@ -1,17 +1,18 @@
 import React from 'react'
 import '../styles/searchBar.css'
 
-const SearchBar = ({ searchValue, setSearchvalue, clearSearch, searchBarSubmit }) => {
+const SearchBar = ({ searchValue, setSearchValue, searchBarSubmit, clearSearchBar }) => {
+
   return (
     <div className='searchBar'>
       <form onSubmit={searchBarSubmit}>
         <input 
         type='text'
-        onChange={setSearchvalue}
+        onChange={(e) => setSearchValue(e.target.value)}
         placeholder='Filter Blogs'
         value={searchValue}
         />
-        {searchValue && <span onClick={clearSearch}>X</span>}
+        {searchValue && <span onClick={clearSearchBar}>X</span>}
         <button>Search</button>
 
       </form>

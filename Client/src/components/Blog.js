@@ -4,7 +4,6 @@ import Category from './Category'
 import { useNavigate } from 'react-router-dom'
 
 const Blog = ({ blogData }) => {
-    console.log(blogData)
     const navigate = useNavigate()
 
     return (

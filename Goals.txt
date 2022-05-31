@@ -20,7 +20,7 @@ Goals:
 9. Update user schema to include:
     - user avatar (Get google account image?)
         - Let user update that via a PUT request
-10. Filter functionality
+10. (DONE) Filter functionality
 
 
 
@@ -33,3 +33,9 @@ Goals:
 6. Likes
 7. Content 
 8. Date Created
+
+
+// implement functionality so that if an erro happens with the URL
+like when someone gives the wrong URL apprently the entire server stops working
+becuase of the error that action triggers. Which means that the Home page
+also stops working.

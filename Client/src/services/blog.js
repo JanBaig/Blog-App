@@ -6,4 +6,9 @@ const getAll = async () => {
     return response.data
 }
 
-export default { getAll }
+const getSingle = async (ID) => {
+    const response = await axios.get(`${baseURL}/${ID}`)
+    return response.data
+}
+
+export default { getAll, getSingle }

@@ -1,0 +1,11 @@
+
+.noResult {
+    display: flex;
+    justify-content: center;
+
+}
+
+.noResult img {
+    max-width: 350px;
+    width: 200px;
+}

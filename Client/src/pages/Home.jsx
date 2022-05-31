@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import blogService from '../services/blog'
-import Blog from "../components/Blog"
 import Header from "../components/Header"
 import SearchBar from "../components/SearchBar"
 import AllBlogs from "../components/AllBlogs"
+import NoResult from "../components/NoResult"
 
 const Home = () => {
     const navigate = useNavigate();
     const [blogs, setBlogs] = useState([])
+    const [defaultBlogs, setDefaultBlogs] = useState([])
+    const [searchValue, setSearchValue] = useState('')
 
     const getAllBlogs = async () => {
       const response = await blogService.getAll()
       setBlogs(response)
+      setDefaultBlogs(response)
     }
 
     useEffect(() => {
@@ -20,19 +23,29 @@ const Home = () => {
 
     }, [])
 
+    const filterSearch = async (e) => {
+      e.preventDefault()
+
+      const filteredBlogs = defaultBlogs.filter(blog => blog.category.toLowerCase().includes(searchValue.toLowerCase().trim()))
+      setBlogs(filteredBlogs)
+
+    }
+
+    const clearFilter = () => {
+      getAllBlogs()
+      setSearchValue('')
+    }
+
     return (
       <div>
         <button onClick={() => navigate('/signup')}>Sign up</button>
         <button onClick={() => navigate('/login')}>Log in</button>
         
-        {/* Header Component */}
         <Header />
         
-        {/* Search Bar */}
-        <SearchBar />
+        <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} searchBarSubmit={filterSearch} clearSearchBar={clearFilter}/>
 
-        {/* Display All blogs - Need to pass in props */}
-        <AllBlogs blogs={blogs}/>
+        {blogs.length === 0 ? <NoResult /> :<AllBlogs blogs={blogs}/>}
 
       </div>
     )
