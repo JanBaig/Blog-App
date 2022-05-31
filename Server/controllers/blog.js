@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken')
 const config = require('../utils/config')
 
 blogRouter.get('/', async (req, res) => {
-  const allBlogs = await blogModel.find({}).populate('user', {username: 1, name: 1})
+  const allBlogs = await blogModel.find({}).populate('user', {username: 1, name: 1, avatar: 1})
   res.json(allBlogs)
 
 })
@@ -21,7 +21,7 @@ blogRouter.get('/:id', async (req, res) => {
 
 // Verify the token and then proceed
 blogRouter.post('/', async (req, res) => {
-  const body = req.body;
+  const body = req.body
 
   // Verifying Token
   let token = '';
@@ -36,17 +36,20 @@ blogRouter.post('/', async (req, res) => {
   }
   const decodedToken = jwt.verify(token, config.SECRET)
   
-  // Getting user
+  // Getting user from Token
   const user = await userModel.findById(decodedToken.id)
 
   // Creating New Blog
   const newBlog = new blogModel({
+    background: body.background,
     title: body.title,
+    category: body.category,
     description: body.description,
-    author: body.author,
-    content: body.content,
+    user: user._id,
     likes: body.likes,
-    user: user._id
+    content: body.content,
+    date: body.date
+    
   })
 
   const savedBlog = await newBlog.save()

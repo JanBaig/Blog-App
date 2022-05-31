@@ -10,16 +10,16 @@ GET {{default}}/api/blog
 #### Create New Blog
 POST {{default}}/api/blog
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIjMSIsImlkIjoiNjI5NGUyZjA4ZjFkNTc2ZTU2NDZlNTU0IiwiaWF0IjoxNjUzOTMwMzAxfQ.kz6_kw4bx5E-8vqiX02tqgNqMNaY9zOtNORIThR9BsU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIjMSIsImlkIjoiNjI5NjViMGYzNjRhZDRhMjY2NDBmM2ZlIiwiaWF0IjoxNjU0MDIwOTI1fQ.nmpuJOgygFAnkfLrjfIx3ASEP58A0x5seSIQu8FnoHQ 
 
-{
-  "title": "SixthBlog",
-  "description": "nothing much",
-  "author": "Jan",
-  "content": "some content",
-  "description": "Just my sixth blog.",
-  "likes": 0
-
+{ 
+  "background": "https://lesley.edu/sites/default/files/styles/full_width_gallery_1x_wide/public/2021-06/illustration-program-anna-hughes.jpg?itok=iWTJvXBy",
+  "title": "ForthBlog",
+  "category": "Fashion",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
+  "likes": 0,
+  "content": "Lorem ipsum dolor sit amet. Et atque commodi quo assumenda omnis et voluptas magni. Cum quisquam dolores sit amet sunt aut rerum debitis sed amet soluta. Aut maxime obcaecati ut consequuntur consequatur 33 molestiae ratione et sapiente similique et esse internos est dolorem error! Sed tenetur praesentium et officia fuga eum iusto assumenda et nemo molestiae sed consequatur iusto est error labore vel voluptatum ullam.",
+  "date": "May 1st, 2022"
 }
 
 
@@ -34,9 +34,10 @@ POST {{default}}/api/user
 Content-Type: application/json
 
 {
-  "username": "user#3",
+  "avatar": "http://cdn.onlinewebfonts.com/svg/img_264570.png",
+  "username": "user#1",
   "name": "Jan",
-  "password": "user#3"
+  "password": "user#1"
 }
 
 #### User Log In

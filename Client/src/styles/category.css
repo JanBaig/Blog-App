@@ -1,0 +1,11 @@
+
+.categoryLabel {
+    font-size: 0.7rem;
+    background-color: #0f52ba;
+    color: #fff;
+    padding: 0.3rem 0.5rem; 
+    border-radius: 5px;
+    width: fit-content;
+    text-transform: capitalize;
+
+}

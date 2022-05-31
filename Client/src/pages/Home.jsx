@@ -20,17 +20,6 @@ const Home = () => {
 
     }, [])
 
-    const displayAllBlogs = () => {
-      
-      return blogs.map((blog, count) => {
-        return (
-          <div key={count} className='grid-container'>
-            <Blog blogData={blog}/>
-          </div>
-        )
-      })
-    }
-
     return (
       <div>
         <button onClick={() => navigate('/signup')}>Sign up</button>

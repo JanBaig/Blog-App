@@ -3,8 +3,10 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Blog from './pages/Blog';
+import './styles/general.css'
 
 function App() {
+
   return (
     <div className='container'>
       <Router>

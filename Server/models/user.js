@@ -11,6 +11,7 @@ mongoose.connect(config.MONGODB_URI)
 })
 
 const userSchema = new mongoose.Schema({
+  avatar: String,
   username: String,
   name: String,
   passwordHash: String, 

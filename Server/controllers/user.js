@@ -35,6 +35,7 @@ userRouter.post('/', async (req, res) => {
   const passwordHash = bcrypt.hashSync(body.password, 8);
 
   const newUser = new userModel({
+    avatar: body.avatar,
     username: body.username,
     name: body.name,
     passwordHash: passwordHash
