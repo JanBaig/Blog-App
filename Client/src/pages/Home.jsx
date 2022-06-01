@@ -36,15 +36,15 @@ const Home = () => {
       setSearchValue('')
     }
 
+
+
     return (
       <div>
-        <button onClick={() => navigate('/signup')}>Sign up</button>
-        <button onClick={() => navigate('/login')}>Log in</button>
         
         <Header />
         
         <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} searchBarSubmit={filterSearch} clearSearchBar={clearFilter}/>
-
+      
         {blogs.length === 0 ? <NoResult /> :<AllBlogs blogs={blogs}/>}
 
       </div>

@@ -28,3 +28,24 @@
     cursor: pointer;
 
 }
+
+.flex-container {
+    display: flex;
+}
+
+.newBlog-btn {
+    position: absolute;
+    height: 27px;
+    margin-top: 47px;
+    left: 62%;
+
+    outline: none;
+    border: none;
+    padding: .3rem 1rem;
+    border-radius: 5px;
+    background-color: #68696b;
+    color: #fff;
+    cursor: pointer;
+    
+}
+

@@ -2,7 +2,7 @@
 @default = http://localhost:{{port}}
 
 #### Get Single Blog
-GET {{default}}/api/blog/629528fafa16a636e7d2d262
+GET {{default}}/api/blog/629528fafa16a636e7
 
 #### Get All Blogs
 GET {{default}}/api/blog

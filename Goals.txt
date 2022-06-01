@@ -1,30 +1,33 @@
 Goals:
-
-1. (DONE) Plan pages
-2. (DONE) Use react router to get the basic layout (login, Signup, blogPage, MainDisplayPage)
-3. (DONE) Create the user and blog schema
-4. (DONE) Create the basic controllers (User, Login, Blog)
+- (DONE) Plan pages
+- (DONE) Use react router to get the basic layout (login, Signup, blogPage, MainDisplayPage)
+- (DONE) Create the user and blog schema
+- (DONE) Create the basic controllers (User, Login, Blog)
     - Login (Token, bcrypt)
     - User (POST, GET)
     - Blog (POST (Update user's 'blogs' array)), GET)
-5. (DONE) Testing (in test mode not development/JEST?) 
+-  (DONE) Testing (in test mode not development/JEST?) 
     - Unique username
     - Username cannot include a space
-6. Rough layout of each router page 
-7. New route allowing users to create a new blog 
-    - Set background image
-8. (DONE) Updata blog scehma to include:
+- (DONE) Rough layout of each router page 
+- (DONE) Updata blog scehma to include:
     - Background image link
     - Date created
     - Category (Sub-categories?)
-9. Update user schema to include:
-    - user avatar (Get google account image?)
-        - Let user update that via a PUT request
-10. (DONE) Filter functionality
+- (DONE) Update user schema to include:
+    - avatar
+- (DONE) Filter functionality
+- (DONE) implement functionality so that if an error happens with the URL
+    like when someone gives the wrong URL apprently the entire server stops working
+    becuase of the error that action triggers. Which means that the Home page
+    also stops working - had to catch the error and send a status of
+- Work on Login/Signup functionality
+    - Error Messages for incorrect credentials
+- New route allowing users to create a new blog 
+- User can change blog/user data via PUT request
 
-
-
-// Blog Schema- DELETE Author
+--------------------------------------------------------
+Blog Schema- DELETE Author
 1. background
 2. Title 
 3. Category (Don't want subcategories actually)
@@ -35,7 +38,3 @@ Goals:
 8. Date Created
 
 
-// implement functionality so that if an erro happens with the URL
-like when someone gives the wrong URL apprently the entire server stops working
-becuase of the error that action triggers. Which means that the Home page
-also stops working.

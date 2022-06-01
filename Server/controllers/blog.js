@@ -13,10 +13,16 @@ blogRouter.get('/', async (req, res) => {
 
 })
 
-blogRouter.get('/:id', async (req, res) => {
+blogRouter.get('/:id', (req, res) => {
   const ID = req.params.id;
-  const blogFound = await blogModel.findById(ID)
-  res.status(200).json(blogFound)
+  blogModel.findById(ID)
+  .then((foundBlog) =>{
+    res.status(200).json(foundBlog)
+  })
+  .catch((error) => {
+    res.status(400).json({ error: error.message })
+  })
+  
 })
 
 // Verify the token and then proceed

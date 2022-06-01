@@ -36,6 +36,41 @@
 
 .blogPage-content {
     text-align: left;
-    padding: 1rem;
-    margin-top: 1.5rem;
+    padding: 0.5rem;
+    margin-top: -1.5rem;
+}
+
+.authorInfo {
+    display: flex;
+}
+
+.authorInfo img {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    left: 0.5%;
+    margin-top: 14px;
+    object-fit: cover;
+}
+
+.authorInfo p {
+    margin-left: 13px;
+    margin-top: 24px;
+    color: #a9a9a9;
+}
+
+.blogPageButtons button {
+    position: relative;
+    margin-left: 3px;
+    margin-top: 15px;
+
+    outline: none;
+    border: none;
+    padding: .2rem 0.5rem;
+    border-radius: 5px;
+    background-color: #77797b;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 2rem;
+
 }

@@ -13,3 +13,23 @@
     color: #a9a9a9;
     font-weight: 500;
 }
+
+.home-header button {
+    outline: none;
+    border: none;
+    padding: .3rem 1rem;
+    border-radius: 5px;
+    background-color: #0f52ba;
+    color: #fff;
+    cursor: pointer;
+    
+}
+
+.profilePic {
+    position: absolute;
+    left: 93.4%;
+    top: 4.2%;
+    object-fit: cover;
+    cursor: pointer;
+    
+}

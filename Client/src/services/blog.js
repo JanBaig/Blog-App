@@ -11,4 +11,6 @@ const getSingle = async (ID) => {
     return response.data
 }
 
+
+
 export default { getAll, getSingle }
