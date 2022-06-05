@@ -36,8 +36,6 @@ const Home = () => {
       setSearchValue('')
     }
 
-
-
     return (
       <div>
         

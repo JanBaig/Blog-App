@@ -12,4 +12,9 @@ const getUser = async (ID) => {
     return response.data
 }
 
-export default { userLogin, getUser }
+const newUser = async(userData) => {
+    const response = await axios.post(`${baseURL}/user`, userData)
+    return response.data
+}
+
+export default { userLogin, getUser, newUser }

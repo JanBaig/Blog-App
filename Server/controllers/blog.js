@@ -68,5 +68,23 @@ blogRouter.post('/', async (req, res) => {
 
 })
 
+blogRouter.delete('/:id', async (req, res) => {
+  const ID = req.params.id
+
+  const deletedBlog = await blogModel.deleteOne({ _id: ID  })
+  res.status(200).json({ message: 'Successfully Deleted!' })
+  
+})
+
+blogRouter.put('/:id', async (req, res) => {
+  const ID = req.params.id;
+  const body = req.body;
+  console.log(body)
+  const response = await blogModel.findByIdAndUpdate(ID, body, { new: true })
+  
+  res.status(200).json(response)
+
+})
+
 module.exports = blogRouter;
 

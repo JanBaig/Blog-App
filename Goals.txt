@@ -20,11 +20,12 @@ Goals:
 - (DONE) implement functionality so that if an error happens with the URL
     like when someone gives the wrong URL apprently the entire server stops working
     becuase of the error that action triggers. Which means that the Home page
-    also stops working - had to catch the error and send a status of
-- Work on Login/Signup functionality
+    also stops working - had to catch the error and send a status of 400 (NOW FIXED)
+- (DONE) Work on Login/Signup functionality
     - Error Messages for incorrect credentials
-- New route allowing users to create a new blog 
-- User can change blog/user data via PUT request
+- (DONE) New route allowing users to create a new blog 
+- User can change blog data via PUT request
+    - Reuse the CreateNew component (Pass in props (Edit/New Modes) that would handle edit functionality)
 
 --------------------------------------------------------
 Blog Schema- DELETE Author

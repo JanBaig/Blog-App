@@ -22,6 +22,17 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
   "date": "May 1st, 2022"
 }
 
+#### Delete a Blog
+DELETE {{default}}/api/blog/629ce81d8b4d569e45bba3e7
+Content-Type: application/json 
+
+#### Update a Blog
+PUT {{default}}/api/blog/629cf3055714dbf7a9955534
+Content-Type: application/json
+
+{
+  "content": "Updated content from the PUT request"
+}
 
 #### Getting Single User
 GET {{default}}/api/user/6294e6aea5079e4135785998

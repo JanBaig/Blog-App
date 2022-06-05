@@ -10,12 +10,12 @@ export const Blog = () => {
   const { id } = useParams();
   const [currentBlog, setCurrentBlog] = useState(null)
   const [blogUser, setBlogUser] = useState('')
+  const [verifiedOwner, setVerifiedOwner] = useState(false) 
   const navigate = useNavigate();
 
   const getSingleBlog = () => {
     blogService.getSingle(id)
     .then((response) => {
-      console.log(response)
       setCurrentBlog(response)
     })
     .catch((error) => {
@@ -29,7 +29,6 @@ export const Blog = () => {
     if (currentBlog) {
       userService.getUser(currentBlog.user)
       .then((response) => {
-        console.log(response)
         setBlogUser(response)
         
       })
@@ -38,6 +37,19 @@ export const Blog = () => {
       })
     }
   } 
+
+  const verifyBlogOwner = () => {
+
+    const loginData = JSON.parse(localStorage.getItem('loginData'))
+    if (loginData.username === blogUser.username){
+      setVerifiedOwner(true)
+    }
+    else {
+      setVerifiedOwner(false)
+    }
+    
+
+  }
 
   useEffect(() => {
     // Find the Blog corresponding to the ID
@@ -48,13 +60,29 @@ export const Blog = () => {
     getBlogUser()
   }, [currentBlog])
 
+  useEffect(() => {
+    verifyBlogOwner()
+  }, [blogUser])
 
-  const deleteBlog = () => {
-    alert(`Delete dis?`)
+
+  const deleteBlog = async () => {
+  
+    if (window.confirm('Delete dis?')){
+
+      try {
+        const response = await blogService.deleteSingle(id)
+        navigate('/')
+        console.log(response)
+      }
+      catch(error) {
+        console.log(error.message)
+      }
+    }
   }
 
   const editBlog = () => {
-    alert(`Edit dis?`)
+    // Need to implement PUT requests 
+    navigate(`/editBlog/${id}`)
   }
 
   return (
@@ -74,10 +102,10 @@ export const Blog = () => {
               <p className='side-side'>By: {blogUser.name}</p>
             </div>
 
-            <div className='blogPageButtons'>
+            {verifiedOwner ? <div className='blogPageButtons'>
               <button onClick={editBlog}>Edit</button>
               <button onClick={deleteBlog}>Delete</button>
-            </div>
+            </div>: <p></p>}
 
             <p className='blogPage-content'>{currentBlog.content}</p>
 

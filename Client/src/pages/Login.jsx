@@ -20,6 +20,7 @@ const Login = () => {
             const response = await userService.userLogin(credentials)
             // Saving to local & .stringify JS obj -> String & .parse() String -> JS Obj
             localStorage.setItem('loginData', JSON.stringify(response))
+            console.log(localStorage.getItem('loginData'))
             navigate('/')
 
         }
@@ -33,6 +34,7 @@ const Login = () => {
     return (
         <div>
             <h2>Login</h2>
+            <p>{notif}</p>
             <input onChange={(e) => setUsername(e.target.value)} type='text' placeholder="Enter Username" value={username}/> <br />
             <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder="Enter Password" value={password}/> <br />
             <button onClick={submitLogin}>Login</button>
