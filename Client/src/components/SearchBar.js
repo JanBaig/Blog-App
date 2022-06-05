@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/searchBar.css'
 import { useNavigate } from 'react-router-dom'
 
 const SearchBar = ({ searchValue, setSearchValue, searchBarSubmit, clearSearchBar }) => {
   const navigate = useNavigate();
+  const [loggedUser, setLoggedUser] = useState(true)
+
+  useEffect(() => {
+    if (localStorage.getItem('loginData') == null){
+      setLoggedUser(false)
+    }
+  }, [])
 
   return (
 
@@ -21,7 +28,7 @@ const SearchBar = ({ searchValue, setSearchValue, searchBarSubmit, clearSearchBa
         </form>
       </div>
 
-      <button onClick={() => navigate('/createNew')} className='newBlog-btn'>New Blog</button>
+      {loggedUser? <button onClick={() => navigate('/createNew')} className='newBlog-btn'>New Blog</button>: <p></p>}
 
     </div>
     

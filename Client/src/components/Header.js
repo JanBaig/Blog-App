@@ -11,11 +11,8 @@ const Header = () => {
     const loginData = JSON.parse(localStorage.getItem('loginData'))
     if (loginData !== null){
       setUserLogged(loginData)
-    }
-
-    const userData = JSON.parse(localStorage.getItem('loginData'))
-    console.log(userData.avatar)
-    setUserImg(userData.avatar)
+      setUserImg(loginData.avatar)
+    } 
 
   }, [])
 

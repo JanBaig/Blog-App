@@ -28,7 +28,7 @@ const CreateNew = ({ mode }) => {
         setDesc(response.description)
         setContents(response.content)
         setDate(response.date)
-        setImg(response.background)
+        setUploadImage(response.background)
 
       })
 

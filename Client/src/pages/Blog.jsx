@@ -41,11 +41,14 @@ export const Blog = () => {
   const verifyBlogOwner = () => {
 
     const loginData = JSON.parse(localStorage.getItem('loginData'))
-    if (loginData.username === blogUser.username){
+    if (loginData !== null){
+      if (loginData.username === blogUser.username){
       setVerifiedOwner(true)
-    }
-    else {
-      setVerifiedOwner(false)
+      }
+      else {
+        setVerifiedOwner(false)
+      }
+    
     }
     
 
