@@ -1,8 +1,11 @@
 
 .categoryLabel {
     font-size: 0.7rem;
-    background-color: #0f52ba;
+    /* background-color: #0f52ba; */
     color: #fff;
+    
+background: rgb(15,82,186);
+background: linear-gradient(90deg, rgba(15,82,186,1) 0%, rgba(102,147,215,1) 100%);
     padding: 0.3rem 0.5rem; 
     border-radius: 5px;
     width: fit-content;

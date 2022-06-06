@@ -20,7 +20,7 @@ const SearchBar = ({ searchValue, setSearchValue, searchBarSubmit, clearSearchBa
           <input 
           type='text'
           onChange={(e) => setSearchValue(e.target.value)}
-          placeholder='Filter Blogs'
+          placeholder='Filter Blogs by Category'
           value={searchValue}
           />
           {searchValue && <span onClick={clearSearchBar}>X</span>}

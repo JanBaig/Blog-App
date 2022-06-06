@@ -28,8 +28,8 @@ const Header = () => {
           {userLogged ? <p>{userLogged.username}</p> : <p>Guest</p>}
         </div>
         
-        <h1>Blog</h1>
-        <p>Some description here</p>
+        <h1>Blog App</h1>
+        <p>Welcom! Sign in to create, update and delete a blog</p>
     </div>
   )
 }

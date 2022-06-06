@@ -46,12 +46,9 @@ const Signup = () => {
 
         const response = await userService.newUser(newUser)
         console.log(response)
-        setNotif('Successfully signed up! Please Log in now')
-
-        setInterval(() => {
-            setNotif(null)
-            navigate('/login')
-        }, 3000)
+        
+        navigate('/login')
+        
     } 
 
     return (

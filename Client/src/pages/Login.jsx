@@ -21,8 +21,9 @@ const Login = () => {
             const response = await userService.userLogin(credentials)
             // Saving to local & .stringify JS obj -> String & .parse() String -> JS Obj
             localStorage.setItem('loginData', JSON.stringify(response))
-            console.log(localStorage.getItem('loginData'))
-            navigate('/')
+            if (localStorage.getItem('loginData')){
+                navigate('/')
+            }
 
         }
         catch(error) {
