@@ -14,4 +14,4 @@ npm start
 ```
 
 ## Preview
-<img width="950" alt="BlogApp_Preview" src="https://user-images.githubusercontent.com/76413679/172229069-b7066ae4-fd60-4b4c-b90c-74a367b72735.png">
+<img width="938" alt="BlogApp_Preview" src="https://user-images.githubusercontent.com/76413679/172229786-eb3fd538-f9d7-4c7a-88e2-9b03779b441a.png">
