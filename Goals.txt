@@ -24,7 +24,7 @@ Goals:
 - (DONE) Work on Login/Signup functionality
     - Error Messages for incorrect credentials
 - (DONE) New route allowing users to create a new blog 
-- User can change blog data via PUT request
+- (DONE) User can change blog data via PUT request
     - Reuse the CreateNew component (Pass in props (Edit/New Modes) that would handle edit functionality)
 
 --------------------------------------------------------

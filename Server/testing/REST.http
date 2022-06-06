@@ -10,7 +10,7 @@ GET {{default}}/api/blog
 #### Create New Blog
 POST {{default}}/api/blog
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIjMSIsImlkIjoiNjI5NjViMGYzNjRhZDRhMjY2NDBmM2ZlIiwiaWF0IjoxNjU0MDIwOTI1fQ.nmpuJOgygFAnkfLrjfIx3ASEP58A0x5seSIQu8FnoHQ 
+Authorization: bearer 
 
 { 
   "background": "https://lesley.edu/sites/default/files/styles/full_width_gallery_1x_wide/public/2021-06/illustration-program-anna-hughes.jpg?itok=iWTJvXBy",
