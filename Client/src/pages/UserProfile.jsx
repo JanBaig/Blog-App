@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../styles/userProfile.css'
 
 const UserProfile = () => {
     const guestUser = {
@@ -31,12 +32,12 @@ const UserProfile = () => {
     }
 
   return (
-    <div>
+    <div className='profile'>
         <h2>User Information</h2>
         <img src={userData.avatar} width='90' height='90'/>
         <p>Username: {userData.username}</p>
         <p>Name: {userData.name}</p>
-        {guest? <p></p> : <button onClick={logOut}>Log out</button>}
+        {guest? <p></p> : <div><button onClick={logOut}>Log out</button> <button onClick={() => navigate('/')}>Cancel</button> </div>}
     </div>
   )
 }

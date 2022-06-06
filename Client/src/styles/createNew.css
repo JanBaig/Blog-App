@@ -1,0 +1,72 @@
+
+.createNew {
+    position: absolute;
+    top: 30%;
+    margin-top: -120px;
+    text-align: center;
+    right: 32%;
+    width: 480px;
+    height: 490px;
+    padding-top: 1.1rem;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 25px;
+}
+
+.createNew button {
+    margin-bottom: 0.6rem;
+    margin-top: 0.3rem;
+
+    margin-top: 0.6rem;
+    outline: none;
+    border: none;
+    padding: .3rem 1rem;
+    border-radius: 5px;
+    background-color: #0f52ba;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 0.3rem;
+}
+
+.createNew input {
+    margin-bottom: 0.6rem;
+    margin-top: 0.4rem;
+
+    background-color: #f0f0f0;
+    outline: none;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 5px;
+    margin: 0.1rem auto 0.4rem auto;
+    margin-right: 0.2rem;
+}
+
+.createNew h2 {
+    margin-bottom: 1rem;
+}
+
+textarea {
+    width: 400px;
+    height: 150px;
+    margin-top: 0.7rem;
+
+    background-color: #f0f0f0;
+    outline: none;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 5px;
+}
+
+select {
+    margin-bottom: 0.6rem;
+    margin-top: 0.4rem;
+
+    background-color: #f0f0f0;
+    outline: none;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 5px;
+}
+
+
+

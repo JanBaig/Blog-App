@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import userService from '../services/user'
+import '../styles/login.css'
 
 const Login = () => {
     const [password, setPassword] = useState('')
@@ -32,12 +33,13 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className='login'>
             <h2>Login</h2>
             <p>{notif}</p>
             <input onChange={(e) => setUsername(e.target.value)} type='text' placeholder="Enter Username" value={username}/> <br />
             <input onChange={(e) => setPassword(e.target.value)} type='password' placeholder="Enter Password" value={password}/> <br />
             <button onClick={submitLogin}>Login</button>
+            <button onClick={() => navigate('/')}>Cancel</button>
         </div>
     )
 }

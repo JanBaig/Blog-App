@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import axios from "axios"
 import userService from '../services/user'
 import { useNavigate } from "react-router-dom"
+import '../styles/signUp.css'
 
 const Signup = () => {
 
@@ -55,17 +56,18 @@ const Signup = () => {
 
     return (
 
-        <div>
+        <div className="signUp">
             <h2>Sign up</h2>
             <p>{notif}</p>
             <form onSubmit={(e) => handleFormSubmit(e)}>
-                <label htmlFor="avatar">Add Avatar</label> <br />
-                <input name="avatar" type='file' onChange={(e) => setImg(e.target.files[0])} /> <br />
+                <p htmlFor="avatar">Add Avatar</p> <br />
+                <input className="uploadImg" name="avatar" type='file' onChange={(e) => setImg(e.target.files[0])} /> <br />
                 <button onClick={(e) => fileSelectedHandler(e)}>Upload Image</button> <br />
                 <input type='text' placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)}/> <br />
                 <input  type='text' placeholder="Enter username" value={username} onChange={(e) => setUsername(e.target.value)}/> <br />
                 <input  type='password' placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)}/> <br />
                 <button>Sign up</button>
+                <button onClick={() => navigate('/') }>Cancel</button>
             </form>
         </div>
     )

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Axios from 'axios';
 import blogService from '../services/blog'
 import { useNavigate, useParams } from 'react-router-dom';
+import '../styles/createNew.css'
 
 const CreateNew = ({ mode }) => {
   const [componentMode, setComponentMode] = useState(mode)
@@ -137,13 +138,13 @@ const CreateNew = ({ mode }) => {
   }
 
   return (
-    <div>
+    <div className='createNew'>
       { mode? <h2>Create New Blog</h2> : <h2>Edit Blog</h2>}
       <p>{notif}</p>
       <form onSubmit={(e) => processFormData(e)}>
         <input name='title' type='text' placeholder='Enter Title' onChange={(e) => setTitle(e.target.value)} value={title}/> <br />
 
-        <input type='file' onChange={(e) => setImg(e.target.files[0])} /> <br />
+        <input className='uploadImg'  type='file' onChange={(e) => setImg(e.target.files[0])} /> <br />
         <button onClick={(e) => fileSelectedHandler(e)}>Upload Image</button> <br />
 
         <label htmlFor="category">Blog category: </label>
@@ -155,10 +156,13 @@ const CreateNew = ({ mode }) => {
           <option value="General">General</option>
         </select> <br />
 
-        <input name='description' type='text' placeholder='Enter description' value={desc} onChange={(e) => setDesc(e.target.value) }/> <br />
-        <textarea name='content' placeholder='Enter blog content here' value={contents} onChange={(e) => setContents(e.target.value)} ></textarea> <br />
+        <input name='description' type='text' placeholder='Enter description' value={desc} onChange={(e) => setDesc(e.target.value) }/>
         <input name='date' type='date' value={date} onChange={(e) => setDate(e.target.value)}/> <br />
-        <button type='submit'>Create</button>
+        <textarea name='content' placeholder='Enter blog content here' value={contents} onChange={(e) => setContents(e.target.value)} ></textarea> <br />
+       
+        <button type='submit'>Create</button> 
+        <button onClick={() => navigate('/')}>Cancel</button>
+        
       </form>
       
     </div>
